@@ -5,3 +5,11 @@ dns && dns.resp.name==micromax.in
 
 website & access syn flag sets
 tcp && tcp.flags.syn==1
+
+http traffic capture and filtering
+http && ip.src == <your m/c ip>  ipconfig
+
+arp packets from your gateway
+wireshark > cmd - <arp -a> 
+arp && arp.src.proto_ipv4 == <gateway_ip>
+arp && eth.src == <gateway_MAC>
