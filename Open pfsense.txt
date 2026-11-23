@@ -1,0 +1,29 @@
+Open pfsense
+
+setup
+next > primary dns server - 192.168.72.20 ovetside dns > uncheck
+configuration type > dhcp
+Lan IP address > 192.168.125.5
+subnet mask 24
+new pass 
+finish 
+
+Question block this ip's 185.147.72.168 158.173.154.1
+
+firewall > rule 
+action - block > protocol - any
+source - n/w - 192.168.125.0 subnet =24 
+dest - address or alias 185.147.72.168
+
+same for 158.173.154.1
+
+
+services > squid proxy server > local cache 
+squid hard disk cache setting 
+hard disk cache = 1024 > save
+
+General > Enable squid proxy
+proxy > loopback && lan both 
+squid proxy port - 3128
+
+
