@@ -1,0 +1,24 @@
+squid 
+
+Two m/c req both must be in bridge/NAT
+
+sudo yum install squid -y
+sudo nano /etc/squid/squid.conf
+sudo systemctl start squid > status
+add port 3128/tcp --permanent
+ip -br a 
+
+another m/c 
+ping <prev m/c ip>
+nmtui automatic
+
+on 1st m/c 
+Change browser setting where squid has installed > search proxy > proxy settings > Another m/c ip there
+
+now 2nd m/c 
+acl comp src <client ip>
+acl cdac dstdomain cdac.in
+http_access deny cdac comp1
+
+sudo systemctl reload squid 
+now other m/c search cdac.in then it will be block and other website also
