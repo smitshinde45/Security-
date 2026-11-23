@@ -25,5 +25,32 @@ hard disk cache = 1024 > save
 General > Enable squid proxy
 proxy > loopback && lan both 
 squid proxy port - 3128
+Logging settings - 
+access logging enable
+header handling lang 
+continue on prev
 
+services > squid guard proxy filter > Target 
+add three categories > Name domain list 
 
+comman acl 
+target rule list + > target > allow to all
+deafault last deny
+do not allow ip address 
+
+general > Enable > save > apply 
+on m/c brow setting http proxy - <192.168.125.5> port 3128
+also on both m/c
+
+cretate users 
+service > squid proxy server > users 
+create three users 
+authentication > local > save
+
+service > squid guard proxy filetr 
+time >
+Group ACL >
+add three grp for three user 
+do not allow ip address in url
+save 
+general > save
